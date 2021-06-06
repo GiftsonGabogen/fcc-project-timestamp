@@ -26,7 +26,10 @@ app.get("/api/:date", function (req, res) {
 
 	dateObj.toString() === "Invalid Date"
 		? res.json({ error: "Invalid Date" })
-		: res.json({ unix: dateObj.valueOf(), utc: dateObj.toUTCString() });
+		: res.json({
+				unix: parseInt(dateObj.valueOf()),
+				utc: dateObj.toUTCString(),
+		  });
 });
 
 var listener = app.listen(process.env.PORT || 5000, function () {
