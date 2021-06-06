@@ -20,7 +20,7 @@ app.get("/api/:date", function (req, res) {
 	//5 digits or more must be a unix time, until we reach a year 10,000
 	if (/\d{5,}/.test(dateString)) {
 		let dateInteger = parseInt(dateString);
-		res.json({ unix: dateString, utc: new Date(dateInteger).toUTCString() });
+		res.json({ unix: dateInteger, utc: new Date(dateInteger).toUTCString() });
 	}
 	let dateObj = new Date(dateString);
 
